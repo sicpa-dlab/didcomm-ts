@@ -1,0 +1,95 @@
+{
+  "name": "didcomm",
+  "version": "0.0.1",
+  "description": "Basic DIDComm v2 support in TypeScript",
+  "main": "build/index.js",
+  "types": "build/types/index.d.ts",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint:fix": "tslint -p tsconfig.json -c tslint.json --fix",
+    "build": "webpack && tsc",
+    "test": "jest --silent",
+    "coverage": "npm run test -- --coverage",
+    "trypublish": "npm publish || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sicpa-dlab/didcomm-ts.git"
+  },
+  "author": "Vyacheslav Gudkov <vyacheslav.gudkov@dsr-corporation.com> (https://github.com/vimmerru)",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/sicpa-dlab/didcomm-ts/issues"
+  },
+  "homepage": "https://github.com/sicpa-dlab/didcomm",
+  "keywords": [
+    "didcomm",
+    "SSI",
+    "library",
+    "es6"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-transform-typescript": "^7.14.6",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.8",
+    "@types/jest": "^26.0.24",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-minify": "^0.5.0",
+    "eslint": "^7.31.0",
+    "file-loader": "^6.2.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "ts-lint": "^4.5.1",
+    "typescript": "^4.3.5",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "4.0.0-rc.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/lib/index.js",
+      "!src/demo/index.js",
+      "!src/utils/**",
+      "!**/tests/**"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "modulePaths": [
+      "<rootDir>/src/"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
+      "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  }
+}
